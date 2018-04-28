@@ -36,7 +36,6 @@
 
   var viewersListRequest = new XMLHttpRequest();
   viewersListRequest.open("GET", "https://tmi.twitch.tv/group/user/crocodyle_lol/chatters", true);
-  viewersListRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
   viewersListRequest.onreadystatechange = function() {
     if (viewersListRequest.readyState === XMLHttpRequest.DONE && this.status == 200) {
       console.log(viewersListRequest.responseText);
