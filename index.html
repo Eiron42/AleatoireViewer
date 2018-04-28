@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+</head>
+<body>
+  <script type="text/javascript">
+  // var url = new URL(window.location);
+  // var crocoToken = null;
+  // console.log(url.hash.substr(1).split('&')[0].split("="));
+  // url.hash.substr(1).split('&').forEach(function(item) {
+  //   data = item.split('=');
+  //   if (data[0] === "access_token") {
+  //     crocoToken = data[1];
+  //   }
+  // });
+  // if (crocoToken === null) {
+  //   window.location.replace("https://id.twitch.tv/oauth2/authorize?client_id=7jb3svqbfdxp2h83tsqevyo93t7e8z&redirect_uri=http://localhost/croco/index.html&response_type=token&scope=openid channel_subscriptions");
+  // } else {
+  //   window.location.hash = '';
+  // }
+
+  // var subsListRequest = new XMLHttpRequest();
+  // // subsListRequest.open("GET", "https://api.twitch.tv/kraken/channels/101234264/subscriptions", true);
+  // subsListRequest.open("GET", "https://api.twitch.tv/kraken/channels/29011909/subscriptions", true);
+  // subsListRequest.setRequestHeader("Accept", "application/vnd.twitchtv.v5+json");
+  // subsListRequest.setRequestHeader("Client-ID", "7jb3svqbfdxp2h83tsqevyo93t7e8z");
+  // subsListRequest.setRequestHeader("Authorization", "OAuth " + crocoToken);
+  // subsListRequest.onreadystatechange = function() {
+  //   if (subsListRequest.readyState === XMLHttpRequest.DONE && this.status == 200) {
+  //     console.log(subsListRequest.responseText);
+  //   }
+  // };
+  // subsListRequest.send();
+
+  var viewersListRequest = new XMLHttpRequest();
+  viewersListRequest.open("GET", "https://tmi.twitch.tv/group/user/crocodyle_lol/chatters", true);
+  viewersListRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
+  viewersListRequest.onreadystatechange = function() {
+    if (viewersListRequest.readyState === XMLHttpRequest.DONE && this.status == 200) {
+      console.log(viewersListRequest.responseText);
+    }
+  };
+  viewersListRequest.send();
+  </script>
+</body>
+</html>
